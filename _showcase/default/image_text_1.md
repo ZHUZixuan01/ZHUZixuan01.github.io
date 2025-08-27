@@ -11,10 +11,6 @@ date: 2020-01-12 00:01:00 +0800
     <p class="card-text">
       I'm an intermediate bridge player. I represented Germany at the World Youth Championship and did poorly T_T.
     </p>
-    #<p class="card-text">
-    #  {% raw %}
-    #  <code>&lt;img data-src=&quot;[Image URL]&quot; class=&quot;lazy w-100 rounded-xl&quot; src=&quot;{{ '/assets/images/empty_300x200.png' | relative_url }}&quot;&gt;</code>
-    #  {% endraw %}
-    #</p>
+    
   </div>
 </div>
