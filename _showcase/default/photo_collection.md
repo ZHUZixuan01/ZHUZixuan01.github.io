@@ -7,8 +7,8 @@ images:
 - src: \photo\MontBlanc.jpg
   title: MontBlanc
   desc: Description 1.
-- src: 
-  title: Photo 2
+- src: \photo\Paris.jpg
+  title: La Seine
   desc: Description 2
 - src: https://picsum.photos/seed/third33/800/800
 ---
