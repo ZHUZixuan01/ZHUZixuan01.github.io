@@ -33,14 +33,14 @@ portrait_caption: >-
   I am not a cat. I'll change it when I have a good photo.
 education:
 - name: Univercité de Paris(Didero)
-  logo: /assets/images/badges/MIT_Social_circle.png
+  logo: assets/images/badges/UniversiteParis_monogramme_couleur_RVB.jpg
   position: >- 
     M.S. in Mathematics and Applications 
   date: Sep. 2021 - Oct. 2023
 - name: University of Science and Technology of China
-  logo: /assets/images/badges/PKU_red.png
-  position: B.S. in Computer Science
-  date: Sep. 2019 - Jul. 2021
+  logo: /assets/images/badges/USTC_logo.png
+  position: B.S. in Mathematics
+  date: Sep. 2017 - Jun. 2021
 
 # experience:
 # - name: Peking University
@@ -48,10 +48,10 @@ education:
 #   position: Research Intern
 #   date: Sep. 2019 - Jul. 2021
 
-awards:
-- name: Award Name 2
-  date: 2024
-- name: Award Name 1 
-  date: 2021
-- name: A quick brown fox jumps over the lazy dog and runs away award
-  date: 2021
+#awards:
+#- name: Award Name 2
+ # date: 2024
+#- name: Award Name 1 
+  #date: 2021
+#- name: A quick brown fox jumps over the lazy dog and runs away award
+#  date: 2021
