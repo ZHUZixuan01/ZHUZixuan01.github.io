@@ -4,11 +4,10 @@ width: 4
 date: 2021-09-12 00:01:00 +0800
 height: 295px
 images:
-- src: \photo\MontBlanc
+- src: \photo\MontBlanc.jpg
   title: MontBlanc
   desc: Description 1.
-  link: https://picsum.photos/
-- src: https://picsum.photos/seed/second22/800/800
+- src: 
   title: Photo 2
   desc: Description 2
 - src: https://picsum.photos/seed/third33/800/800
