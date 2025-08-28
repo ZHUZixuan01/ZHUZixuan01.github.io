@@ -1,4 +1,4 @@
 ---
-title: Lorem ipsum sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-date: 2022-01-12 00:01:00 +0800
+title: A rank on the imaginaries in the proper pairs of ACF 
+date: 2025-03-25 15:25:00 +0800
 ---
