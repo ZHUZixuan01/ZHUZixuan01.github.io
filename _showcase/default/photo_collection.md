@@ -18,7 +18,7 @@ images:
   desc:
 - src: /photo/MathMunster.jpg
   title: Math Münster
-  desc: 
+  desc: Ugly but wonderful
 - src: /photo/Strassbourg.jpg
   title: Strassbourg
   desc: 没有爱就看不见
