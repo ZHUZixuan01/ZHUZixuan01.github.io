@@ -9,7 +9,7 @@ date: 2020-01-12 00:01:00 +0800
   <div class="card-img-overlay" style="overflow: scroll; background: rgb(255,255,255,0.8)">
     <h5 class="card-title">Bridge</h5>
     <p class="card-text">
-      I'm an intermediate bridge player. I represented Germany at the World Youth Championship and did poorly T_T.
+      I'm an intermediate bridge player. I represented Germany at the European Youth Championship in 2024 and the World Youth Championship in 2025. I did poorly though T_T.
     </p>
     
   </div>
