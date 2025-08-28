@@ -16,7 +16,7 @@ images:
 - src: /photo/LuShan.jpg
   title: 庐山
   desc:
-  - src: /photo/MathMunster.jpg
+- src: /photo/MathMunster.jpg
   title: Math Münster
   desc: 
 - src: /photo/Strassbourg.jpg
