@@ -7,7 +7,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             padding: 30px;
             width: 100%;
-            max-width: 700px;
+            max-width: 1000px;
             position: relative;
         }
         
@@ -130,7 +130,7 @@
             }
         }
     </style>
-    <div>
+    <div class="card">
         <!-- 卡片头部，包含标题和语言切换 -->
         <div class="card-header">
             <h1 id="main-title">{{item.title_zh}}</h1>
@@ -185,8 +185,8 @@
                     'en': 'Read Less'
                 },
                 'lang-btn': {
-                    'zh': '中文',
-                    'en': 'English'
+                    'zh': 'English',
+                    'en': '中文'
                 },
                 'footer-text': {
                     'zh': '简单的设计，强大的功能',
@@ -224,7 +224,7 @@
                 langBtn.textContent = translations['lang-btn'][lang];
                 
                 // 更新页脚文本
-                document.querySelector('.card-footer div').textContent = translations['footer-text'][lang];
+                //document.querySelector('.card-footer div').textContent = translations['footer-text'][lang];
                 
                 // 更新阅读更多按钮文本
                 if (isExpanded) {
