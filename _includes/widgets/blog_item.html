@@ -130,8 +130,6 @@
             }
         }
     </style>
-</head>
-<body>
     <div class="card">
         <!-- 卡片头部，包含标题和语言切换 -->
         <div class="card-header">
@@ -153,7 +151,7 @@
         
         <!-- 卡片底部，包含操作按钮 -->
         <div class="card-footer">
-            <div>{{item.date}}</div>
+            <div>"item.date | date: '%Y%m%d'"</div>
             <button id="read-more-btn" class="read-more-btn">阅读更多</button>
         </div>
     </div>
@@ -232,5 +230,3 @@
             });
         });
     </script>
-</body>
-</html>
