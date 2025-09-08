@@ -10,7 +10,7 @@ date: 2022-01-12 00:01:00 +0800
        To be written...
     </p>
     <h6 class="d-block p-3 mt-0 text-right">
-        <a href="_showcase/default/Blog_items.html">All blogs <i class="fas fa-angle-double-right"></i></a>
+        <a href="blogs.html">All blogs <i class="fas fa-angle-double-right"></i></a>
     </h6>
 </div>
 
