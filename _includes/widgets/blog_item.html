@@ -18,6 +18,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+                height: auto;
         }
         
         .text-container {
@@ -64,6 +65,7 @@
                 background: white;
             justify-content: space-between;
             align-items: center;
+                height: auto;
         }
         
         .read-more-btn {
@@ -146,11 +148,7 @@
         <!-- 内容区域 -->
         <div class="text-container">
             <div id="text-content" class="text-content collapsed">
-                <p>这是一个简化版的内容卡片示例，只包含一个内容区块。这个设计包含了语言切换功能和阅读更多功能，所有元素都包含在卡片内部。</p>
-                <p>语言切换按钮位于右上角，点击可以在中文和英文之间切换。阅读更多按钮位于右下角，点击可以展开或收起内容。</p>
-                <p>当内容被展开时，阅读更多按钮会变成"收起内容"，并且颜色会变为红色以提供视觉反馈。</p>
-                <p>这个设计采用了简洁的现代风格，具有圆角、阴影和渐变效果，提供了良好的用户体验。</p>
-                <p>卡片完全响应式，可以适应不同屏幕尺寸。在移动设备上，布局会自动调整以确保内容易于阅读和交互。</p>
+                {{item.content_zh}}
             </div>
             <div id="fade" class="fade-out"></div>
         </div>
