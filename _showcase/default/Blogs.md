@@ -4,7 +4,7 @@ width: 4
 date: 2022-01-12 00:01:00 +0800
 ---
 
-{% assign publications = include.publications %}
+{% assign Blogs = include.Blogs %}
 <div class="my-3 p-0 bg-white shadow-sm rounded-xl">
     <h6 class="border-bottom border-gray p-3 mb-0">
         {% if include.title %}{{ include.title }}{% else %} Blogs{% endif %} 
