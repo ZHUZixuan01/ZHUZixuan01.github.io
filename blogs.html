@@ -1,6 +1,6 @@
 ---
 layout: default
-title : Homepage
+title : BLOGs
 ---
 
 {% assign pubs_by_year = site.blogs | sort: "date" | reverse | group_by_exp: "item", "item.date | date: '%Y'" %}
