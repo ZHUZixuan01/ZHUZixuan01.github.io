@@ -1,53 +1,250 @@
 {% assign item = include.item %}
-<div class="d-none d-md-block">
-    <div class="row no-gutters {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray">
-        <div class="col-md-3 col-xl-2 mb-md-0 p-md-3">
-            {%- if item.cover -%}
-            <img data-src="{{ item.cover | relative_url }}" alt="{{ item.title }}" class="lazy w-100 rounded-sm" src="{{ '/assets/images/empty_300x200.png' | relative_url }}">
-            {%- else -%}
-            <svg class="bubble-visual-hash lazy w-100 rounded-sm" data-bubble-visual-hash="{{ item.id }}" viewBox="0 0 300 200"></svg>
-            {%- endif -%}
-        </div>
-        <div class="col-md-9 col-xl-10 p-3 pl-md-0">
-            <h5 class="mt-0 mb-1 font-weight-normal">{{ item.title }}</h5>
-            <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-            <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span></p>
-            <p class="mt-0 mb-0 small text-muted">{{ item.abstract }}</p>
+    <style>        
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 700px;
+            position: relative;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .text-container {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        
+        .text-content {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 16px;
+            transition: all 0.4s ease;
+        }
+        
+        /* 限制为3行 */
+        .collapsed {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 4.8em; /* 3行 x 1.6行高 */
+        }
+        
+        /* 渐变遮罩 */
+        .fade-out {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .fade-out.hidden {
+            opacity: 0;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .read-more-btn {
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(66, 153, 225, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .read-more-btn:hover {
+            background: #3182ce;
+        }
+        
+        .read-more-btn.expanded {
+            background: #e53e3e;
+        }
+        
+        .lang-btn {
+            background: white;
+            color: #4a5568;
+            border: 1px solid #cbd5e0;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover {
+            background: #4299e1;
+            color: white;
+            border-color: #4299e1;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
             
-            <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
-                {% for link in item.links %}
-                {% if link[1].url %}
-                <a target="{{ link[1]['target'] }}" href="{{ link[1]['url'] }}">[{{ link[0] }}]</a>
-                {% else %}
-                <a target="_blank" href="{{ link[1] }}">[{{ link[0] }}]</a>
-                {% endif %}
-                {% endfor %}
-            </p>
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .card-footer {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .lang-btn {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- 卡片头部，包含标题和语言切换 -->
+        <div class="card-header">
+            <h1 id="main-title">{{item.title}}</h1>
+            <button id="lang-btn" class="lang-btn">中文</button>
         </div>
-    </div>
-</div>
-
-<div class="row no-gutters d-md-none {% unless include.hide_bottom_border %}border-bottom{% endunless %} border-gray {% if include.first %}rounded-xl-top{% endif %} {% if include.last %}rounded-xl-bottom{% endif %} {% if item.cover %}lazy{% endif %}" data-src="{{ item.cover | relative_url }}">
-    <div class="w-100 {% if include.first %}rounded-xl-top{% endif %} {% if include.last %}rounded-xl-bottom{% endif %}" style="background-color: rgba(255,255,255,0.9);">
-        <div class="d-flex align-items-start flex-column py-3 px-4">
-            <div class="mb-auto"></div>
-            <div>
-                <h5 class="mt-0 mb-1 font-weight-normal">{{ item.title }}</h5>
-                <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
-                <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span></p>
-                <p class="mt-0 mb-0 small text-muted">{{ item.abstract }}</p>
-                
-                <p class="small pb-0 mb-0 lh-125 text-muted abstract-links">
-                    {% for link in item.links %}
-                    {% if link[1].url %}
-                    <a target="{{ link[1]['target'] }}" href="{{ link[1]['url'] }}">[{{ link[0] }}]</a>
-                    {% else %}
-                    <a target="_blank" href="{{ link[1] }}">[{{ link[0] }}]</a>
-                    {% endif %}
-                    {% endfor %}
-                </p>
+        
+        <!-- 内容区域 -->
+        <div class="text-container">
+            <div id="text-content" class="text-content collapsed">
+                <p>这是一个简化版的内容卡片示例，只包含一个内容区块。这个设计包含了语言切换功能和阅读更多功能，所有元素都包含在卡片内部。</p>
+                <p>语言切换按钮位于右上角，点击可以在中文和英文之间切换。阅读更多按钮位于右下角，点击可以展开或收起内容。</p>
+                <p>当内容被展开时，阅读更多按钮会变成"收起内容"，并且颜色会变为红色以提供视觉反馈。</p>
+                <p>这个设计采用了简洁的现代风格，具有圆角、阴影和渐变效果，提供了良好的用户体验。</p>
+                <p>卡片完全响应式，可以适应不同屏幕尺寸。在移动设备上，布局会自动调整以确保内容易于阅读和交互。</p>
             </div>
+            <div id="fade" class="fade-out"></div>
+        </div>
+        
+        <!-- 卡片底部，包含操作按钮 -->
+        <div class="card-footer">
+            <button id="read-more-btn" class="read-more-btn">阅读更多</button>
+            <div>简单的设计，强大的功能</div>
         </div>
     </div>
 
-</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textElement = document.getElementById('text-content');
+            const readMoreBtn = document.getElementById('read-more-btn');
+            const fadeElement = document.getElementById('fade');
+            const langBtn = document.getElementById('lang-btn');
+            
+            let isEnglish = false;
+            let isExpanded = false;
+            
+            // 定义多语言内容
+            const translations = {
+                'main-title': {
+                    'zh': '简化版内容卡片',
+                    'en': 'Simple Content Card'
+                },
+                'text-content': {
+                    'zh': `<p>这是一个简化版的内容卡片示例，只包含一个内容区块。这个设计包含了语言切换功能和阅读更多功能，所有元素都包含在卡片内部。</p>
+                          <p>语言切换按钮位于右上角，点击可以在中文和英文之间切换。阅读更多按钮位于右下角，点击可以展开或收起内容。</p>
+                          <p>当内容被展开时，阅读更多按钮会变成"收起内容"，并且颜色会变为红色以提供视觉反馈。</p>
+                          <p>这个设计采用了简洁的现代风格，具有圆角、阴影和渐变效果，提供了良好的用户体验。</p>
+                          <p>卡片完全响应式，可以适应不同屏幕尺寸。在移动设备上，布局会自动调整以确保内容易于阅读和交互。</p>`,
+                    'en': `<p>This is a simplified content card example with only one content block. This design includes language switching functionality and a read more feature, all contained within the card.</p>
+                          <p>The language switch button is located in the upper right corner, allowing you to toggle between Chinese and English. The read more button is located in the lower right corner, allowing you to expand or collapse the content.</p>
+                          <p>When the content is expanded, the read more button changes to "Read Less" and turns red to provide visual feedback.</p>
+                          <p>This design adopts a simple modern style with rounded corners, shadows, and gradient effects, providing a good user experience.</p>
+                          <p>The card is fully responsive and can adapt to different screen sizes. On mobile devices, the layout automatically adjusts to ensure content is easy to read and interact with.</p>`
+                },
+                'read-more': {
+                    'zh': '阅读更多',
+                    'en': 'Read More'
+                },
+                'read-less': {
+                    'zh': '收起内容',
+                    'en': 'Read Less'
+                },
+                'lang-btn': {
+                    'zh': '中文',
+                    'en': 'English'
+                },
+                'footer-text': {
+                    'zh': '简单的设计，强大的功能',
+                    'en': 'Simple design, powerful functionality'
+                }
+            };
+            
+            // 阅读更多功能
+            readMoreBtn.addEventListener('click', function() {
+                isExpanded = !isExpanded;
+                
+                if (isExpanded) {
+                    // 展开内容
+                    textElement.classList.remove('collapsed');
+                    fadeElement.classList.add('hidden');
+                    readMoreBtn.textContent = isEnglish ? translations['read-less']['en'] : translations['read-less']['zh'];
+                    readMoreBtn.classList.add('expanded');
+                } else {
+                    // 收起内容
+                    textElement.classList.add('collapsed');
+                    fadeElement.classList.remove('hidden');
+                    readMoreBtn.textContent = isEnglish ? translations['read-more']['en'] : translations['read-more']['zh'];
+                    readMoreBtn.classList.remove('expanded');
+                }
+            });
+            
+            // 语言切换功能
+            langBtn.addEventListener('click', function() {
+                isEnglish = !isEnglish;
+                const lang = isEnglish ? 'en' : 'zh';
+                
+                // 更新内容
+                document.getElementById('main-title').textContent = translations['main-title'][lang];
+                document.getElementById('text-content').innerHTML = translations['text-content'][lang];
+                langBtn.textContent = translations['lang-btn'][lang];
+                
+                // 更新页脚文本
+                document.querySelector('.card-footer div').textContent = translations['footer-text'][lang];
+                
+                // 更新阅读更多按钮文本
+                if (isExpanded) {
+                    readMoreBtn.textContent = translations['read-less'][lang];
+                } else {
+                    readMoreBtn.textContent = translations['read-more'][lang];
+                }
+                
+                // 重新应用展开/收起状态
+                if (isExpanded) {
+                    textElement.classList.remove('collapsed');
+                    fadeElement.classList.add('hidden');
+                } else {
+                    textElement.classList.add('collapsed');
+                    fadeElement.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
