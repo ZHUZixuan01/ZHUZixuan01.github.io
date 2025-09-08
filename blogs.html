@@ -23,7 +23,7 @@ body_attr: >-
     <div class="col-2 d-none d-lg-block">
         <div id="navbar-year" class="nav nav-pills flex-column sticky-top" style="top: 80px">
             {% for year in pubs_by_year %}
-            <a class="nav-link d-block" href="#year-{{ year.name | split: '-' | first }}-{{ year_month.name | split: '-' | last }}">{{ year.name | split: '-' | first }}-{{ year_month.name | split: '-' | last }}</a>
+            <a class="nav-link d-block" href="#year-{{ year.name}}">{{ year.name | split: '-' | first }}-{{ year.name | split: '-' | last }}</a>
             {% endfor %}
         </div>
     </div>
