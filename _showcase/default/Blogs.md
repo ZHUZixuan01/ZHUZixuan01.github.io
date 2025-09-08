@@ -4,7 +4,7 @@ width: 4
 date: 2022-01-12 00:01:00 +0800
 ---
 <div class="p-4">
-    <h1>Blogs</h1>
+    <h2>Blogs</h2>
     <hr />
     <p>
        To be written...
