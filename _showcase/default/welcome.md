@@ -8,6 +8,9 @@ date: 2024-01-12 00:01:00 +0800
     <h2>Welcome!</h2>
     <hr />
     <p>
-       还没想好放什么，或许会写一些东西。Have a nice day!
+        Recently, I realized that I need to practice writing more, especially in English. Since there are a lot of people that I love around me but I can't express myself very well. I will try to writh some blogs from time to time.
+    </p>    
+    <p>
+        Have a nice day!
     </p>
 </div>
