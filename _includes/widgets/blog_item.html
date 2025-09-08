@@ -1,34 +1,5 @@
 {% assign item = include.item %}
-    <style>        
-        .card {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            width: 100%;
-            max-width: 700px;
-            position: relative;
-        }
-        
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .text-container {
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 15px;
-        }
-        
-        .text-content {
-            color: #4a5568;
-            line-height: 1.6;
-            font-size: 16px;
-            transition: all 0.4s ease;
-        }
-        
+    <style>
         /* 限制为3行 */
         .collapsed {
             display: -webkit-box;
@@ -177,6 +148,11 @@
                     'zh': 'English',
                     'en': '中文'
                 };
+                'footer-text': {
+                    'zh': {{item.date}},
+                    'en': {{item.date}}
+                }
+            };
             
             // 阅读更多功能
             readMoreBtn.addEventListener('click', function() {
