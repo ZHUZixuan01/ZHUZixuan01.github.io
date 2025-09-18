@@ -11,6 +11,6 @@ date: 2020-09-12 00:01:00 +0800
        General ideas
     </p>
     <p>
-       <a href="/politicschina.html">About China</a>
+       <a href="politicschina.html">About China</a>
     </p>
 </div>
