@@ -8,6 +8,9 @@ date: 2020-09-12 00:01:00 +0800
     <h2>Political Opinions</h2>
     <hr />
     <p>
-       To be written...
+       General ideas
+    </p>
+    <p>
+       About China
     </p>
 </div>
