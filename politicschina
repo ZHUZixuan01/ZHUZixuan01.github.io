@@ -1,0 +1,4 @@
+layout: default
+title : Blogs
+body_attr: >-
+  data-spy="scroll" data-target="#navbar-year" data-offset="100"
