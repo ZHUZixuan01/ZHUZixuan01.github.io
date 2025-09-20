@@ -4,8 +4,74 @@ body_attr: >-
   data-spy="scroll" data-target="#navbar-year" data-offset="100"
 
 
+<style>
+ .lang-btn {
+                float: right;
+            background: white;
+            color: #4a5568;
+            border: 1px solid #cbd5e0;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover {
+            background: #4299e1;
+            color: white;
+            border-color: #4299e1;
+        }
+  @media {
+         .lang-btn {
+                align-self: flex-end;
+            }
+        }
+  </style>
+
 
 <div class="p-4">
-    <h2>About China</h2>
+    <h2 id="main-title">我如何看待中国</h2>
+  <button id="lang-btn" class="lang-btn">English</button>
   <hr/>
+
+ <div class="text-container">
+            <div id="text-content">
+                {{item.content_zh}}
+            </div>
+ </div>
+  
+  <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textElement = document.getElementById('text-content');
+            const langBtn = document.getElementById('lang-btn');
+            
+            let isEnglish = false;
+          const translations = {
+                'main-title': {
+                    'zh': `{{我如何看待中国}}`,
+                    'en': '{{What do I think about China}}'
+                },
+                'text-content': {
+                    'zh': `{{item.content_zh}}`,
+                    'en': `{{item.content_en}}`
+                },
+            'lang-btn': {
+                    'zh': 'English',
+                    'en': '中文'
+                }
+            };
+
+           // 语言切换功能
+            langBtn.addEventListener('click', function() {
+                isEnglish = !isEnglish;
+                const lang = isEnglish ? 'en' : 'zh';
+                
+                // 更新内容
+                document.getElementById('main-title').textContent = translations['main-title'][lang];
+                document.getElementById('text-content').innerHTML = translations['text-content'][lang];
+                langBtn.textContent = translations['lang-btn'][lang];
+             })
+        })
+    </script>
     
