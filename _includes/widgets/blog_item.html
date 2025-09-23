@@ -140,24 +140,23 @@
         }
     </style>
     <div class="card" data-item-id="{{ item.id | default: forloop.index }}">
-        <!-- 卡片头部，包含标题和语言切换 -->
-        <div class="card-header">
-            <h2 class="main-title">{{item.title_zh}}</h2>
-            <button class="lang-btn" class="lang-btn">English</button>
-        </div>
-        
-        <!-- 内容区域 -->
-        <div class="text-container">
-            <div class="text-content collapsed">
-                {{item.content_zh}}
-            </div>
-            <div class="fade-out"></div>
-        </div>
-        
-        <!-- 卡片底部，包含操作按钮 -->
-        <div class="card-footer">
-            <div>{{item.date | date: '%d/%m'}}</div>
-            <button class="read-more-btn">展开</button>
-        </div>
+    <div class="card-header">
+        <h2 class="main-title" data-zh="{{ item.title_zh }}" data-en="{{ item.title_en }}">
+            {{ item.title_zh }}
+        </h2>
+        <button class="lang-btn">English</button>
     </div>
+    
+    <div class="text-container">
+        <div class="text-content collapsed" data-zh="{{ item.content_zh }}" data-en="{{ item.content_en }}">
+            {{ item.content_zh }}
+        </div>
+        <div class="fade-out"></div>
+    </div>
+    
+    <div class="card-footer">
+        <div>{{ item.date | date: '%d/%m' }}</div>
+        <button class="read-more-btn">展开</button>
+    </div>
+</div>
 
