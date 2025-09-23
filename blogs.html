@@ -29,3 +29,134 @@ body_attr: >-
     </div>
 
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 为每个卡片存储状态
+    const cardStates = new Map();
+    
+    // 定义多语言内容模板 - 这个需要根据你的数据结构调整
+    function getTranslations(item) {
+        return {
+            'main-title': {
+                'zh': item.title_zh,
+                'en': item.title_en
+            },
+            'text-content': {
+                'zh': item.content_zh,
+                'en': item.content_en
+            },
+            'read-more': {
+                'zh': '展开',
+                'en': 'Read More'
+            },
+            'read-less': {
+                'zh': '收起',
+                'en': 'Read Less'
+            },
+            'lang-btn': {
+                'zh': 'English',
+                'en': '中文'
+            }
+        };
+    }
+    
+    // 事件委托：处理阅读更多按钮点击
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('read-more-btn')) {
+            const card = event.target.closest('.card');
+            const textElement = card.querySelector('.text-content');
+            const fadeElement = card.querySelector('.fade-out');
+            const readMoreBtn = event.target;
+            
+            // 获取或初始化卡片状态
+            const cardId = card.dataset.itemId || 'default';
+            if (!cardStates.has(cardId)) {
+                cardStates.set(cardId, {
+                    isExpanded: false,
+                    isEnglish: false
+                });
+            }
+            
+            const state = cardStates.get(cardId);
+            state.isExpanded = !state.isExpanded;
+            
+            if (state.isExpanded) {
+                // 展开内容
+                textElement.classList.remove('collapsed');
+                if (fadeElement) fadeElement.classList.add('hidden');
+                readMoreBtn.textContent = state.isEnglish ? 'Read Less' : '收起';
+                readMoreBtn.classList.add('expanded');
+            } else {
+                // 收起内容
+                textElement.classList.add('collapsed');
+                if (fadeElement) fadeElement.classList.remove('hidden');
+                readMoreBtn.textContent = state.isEnglish ? 'Read More' : '展开';
+                readMoreBtn.classList.remove('expanded');
+            }
+        }
+    });
+    
+    // 事件委托：处理语言切换按钮点击
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('lang-btn')) {
+            const card = event.target.closest('.card');
+            const langBtn = event.target;
+            const mainTitle = card.querySelector('.main-title');
+            const textElement = card.querySelector('.text-content');
+            const readMoreBtn = card.querySelector('.read-more-btn');
+            
+            // 获取或初始化卡片状态
+            const cardId = card.dataset.itemId || 'default';
+            if (!cardStates.has(cardId)) {
+                cardStates.set(cardId, {
+                    isExpanded: false,
+                    isEnglish: false
+                });
+            }
+            
+            const state = cardStates.get(cardId);
+            state.isEnglish = !state.isEnglish;
+            const lang = state.isEnglish ? 'en' : 'zh';
+            
+            // 这里需要获取该卡片对应的翻译内容
+            // 由于Jekyll模板的限制，我们需要通过其他方式获取
+            // 这里使用data属性来存储翻译内容
+            const titleZh = mainTitle.dataset.zh || mainTitle.textContent;
+            const titleEn = mainTitle.dataset.en || titleZh;
+            const contentZh = textElement.dataset.zh || textElement.innerHTML;
+            const contentEn = textElement.dataset.en || contentZh;
+            
+            const translations = {
+                'main-title': { 'zh': titleZh, 'en': titleEn },
+                'text-content': { 'zh': contentZh, 'en': contentEn },
+                'read-more': { 'zh': '展开', 'en': 'Read More' },
+                'read-less': { 'zh': '收起', 'en': 'Read Less' },
+                'lang-btn': { 'zh': 'English', 'en': '中文' }
+            };
+            
+            // 更新内容
+            mainTitle.textContent = translations['main-title'][lang];
+            textElement.innerHTML = translations['text-content'][lang];
+            langBtn.textContent = translations['lang-btn'][lang];
+            
+            // 更新阅读更多按钮文本
+            if (state.isExpanded) {
+                readMoreBtn.textContent = translations['read-less'][lang];
+            } else {
+                readMoreBtn.textContent = translations['read-more'][lang];
+            }
+            
+            // 重新应用展开/收起状态
+            const fadeElement = card.querySelector('.fade-out');
+            if (state.isExpanded) {
+                textElement.classList.remove('collapsed');
+                if (fadeElement) fadeElement.classList.add('hidden');
+            } else {
+                textElement.classList.add('collapsed');
+                if (fadeElement) fadeElement.classList.remove('hidden');
+            }
+        }
+    });
+});
+</script>
