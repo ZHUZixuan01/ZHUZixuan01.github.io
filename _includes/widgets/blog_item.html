@@ -110,6 +110,9 @@
             color: white;
             border-color: #4299e1;
         }
+        .lang-btn.hidden {
+        display: none;
+        }
         
         /* 响应式设计 */
         @media (max-width: 600px) {
@@ -144,7 +147,10 @@
         <h2 class="main-title" data-zh="{{ item.title_zh }}" data-en="{{ item.title_en }}">
             {{ item.title_zh }}
         </h2>
-        <button class="lang-btn">English</button>
+        <button class="lang-btn {% unless item.engav %}hidden{% endunless %}" 
+                data-engav="{{ item.engav }}">
+            English
+        </button>
     </div>
     
     <div class="text-container">
