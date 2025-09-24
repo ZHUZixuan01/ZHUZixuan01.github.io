@@ -10,7 +10,7 @@ body_attr: >-
 <div class="row">
     <div class="col-12 col-lg-10">
         {% for year in pubs_by_year %}
-        {% assign visible_items = year.items | where: "show", true %}
+        {% assign visible_items = year.items | where: item.show, true %}
         {% assign num_papers = visible_items | size %}
         <h2 class="pt-4" id="year-{{ year.name }}">{{ year.name }}</h2>
         <div class="my-0 p-0 bg-white shadow-sm rounded-xl">
@@ -24,7 +24,7 @@ body_attr: >-
     <div class="col-2 d-none d-lg-block">
         <div id="navbar-year" class="nav nav-pills flex-column sticky-top" style="top: 80px">
             {% for year in pubs_by_year %}
-            {% assign visible_items = year.items | where: "show", true %}
+            {% assign visible_items = year.items | where: item.show, true %}
             {% if visible_items.size > 0 %}
             <a class="nav-link d-block" href="#year-{{ year.name}}">{{ year.name | split: '-' | first }}-{{ year.name | split: '-' | last }}</a>
             {% endfor %}
