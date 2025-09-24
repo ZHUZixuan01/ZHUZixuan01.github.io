@@ -71,6 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 获取或初始化卡片状态
             const cardId = card.dataset.itemId || 'default';
+          const langBtn = card.querySelector('.lang-btn');
+            const engav = langBtn ? langBtn.dataset.engav === 'true' : false;
             if (!cardStates.has(cardId)) {
                 cardStates.set(cardId, {
                     isExpanded: false,
