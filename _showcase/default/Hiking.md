@@ -11,9 +11,13 @@ date: 2024-09-08 00:01:00 +0800
       I value rationality over social compliance.
     </p>
     <p>
-        My sense of belonging is not shaped by gender, nationality, or ethnicity, but by the collective I truly love and identify with. For example, humanity as a whole---the shared endeavor of all rational beings.
-    </p>    
+        My sense of belonging is not defined by gender, nationality, or ethnicity, but by the collectives I truly love and identify with, for example, humanity as a whole: the shared endeavor of all rational beings.
+    </p> 
+    <p>
+        I believe that creativity arises from each person's independent and critical thinking, shaped by their own experience.
+    </p> 
 <p> 
-  In research, I appreciate mathematics that offers insights and inspiration. And I seek to understand connections between structure and logic
+  In research, I appreciate mathematics that brings insights and inspiration. And I seek to understand connections between structure and logic.
 </p>
+    
 </div>
