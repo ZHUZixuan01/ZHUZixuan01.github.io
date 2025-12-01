@@ -5,7 +5,7 @@ date:           2025-12-01
 deflang:        zh
 engav:          false
 cnav:           true
-show:           false
+show:           true
 
 content_en:  <p>
 
