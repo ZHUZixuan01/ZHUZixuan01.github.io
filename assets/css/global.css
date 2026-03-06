@@ -89,4 +89,22 @@ div.lazy {
 .email-text {
     font-family: Courier, monospace;
 }
+/* Publications */
 
+.publication-entry{
+    margin-bottom: 10px;
+}
+
+.publication-title{
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.publication-meta{
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.publication-links a{
+    margin-left: 6px;
+}
