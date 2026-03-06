@@ -1,34 +1,36 @@
 {% assign talks_by_title = site.news | group_by_exp: "item", "item.title" %}
 
 <div class="my-3 bg-white shadow-sm rounded-xl">
-<h6 class="p-3 mb-0 border-bottom border-gray">
-<i class="fas fa-rss"></i> Talks
-</h6>
+  <h6 class="p-3 mb-0 border-bottom border-gray">
+    <i class="fas fa-rss"></i> Talks
+  </h6>
 
-<div class="px-3 pb-2">
+  <div class="px-3 pb-2">
 
-{% for talk in talks_by_title %}
+    {% for talk in talks_by_title %}
+      <div class="talk-entry py-2">
 
-<div class="talk-entry py-2">
+        <!-- Talk title -->
+        <div class="talk-title font-semibold">
+          {{ talk.name }}
+        </div>
 
-<div class="talk-title">
-{{ talk.name }}
-</div>
+        <!-- Talk venues -->
+        <ul class="talk-venues mb-0 list-disc list-inside text-sm text-gray-700">
+          {% for item in talk.items %}
+            {% if item.venues %}
+              {% for venue in item.venues %}
+                <li>
+                  {{ venue.place }} 
+                  <span class="text-muted">({{ venue.date | date: "%b %d, %Y" }})</span>
+                </li>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </ul>
 
-<ul class="talk-venues mb-0">
+      </div>
+    {% endfor %}
 
-{% for item in talk.items %}
-<li>
-{{ item.venue }}
-<span class="text-muted">({{ item.date | date: "%Y" }})</span>
-</li>
-{% endfor %}
-
-</ul>
-
-</div>
-
-{% endfor %}
-
-</div>
+  </div>
 </div>
