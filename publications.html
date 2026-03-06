@@ -11,18 +11,16 @@ navbar_title: Research
 <div class="col-12 col-lg-10">
 
 <h2 class="pt-4">Publications</h2>
-<div class="my-0 p-0 bg-white shadow-sm rounded-xl">
+
 {% for item in publications %}
-    {% include widgets/publication_item.html item=item hide_bottom_border=forloop.last %}
+    {% include widgets/publication_card.html item=item %}
 {% endfor %}
-</div>
 
 <h2 class="pt-4">Preprints</h2>
-<div class="my-0 p-0 bg-white shadow-sm rounded-xl">
+
 {% for item in preprints %}
-    {% include widgets/publication_item.html item=item hide_bottom_border=forloop.last %}
+    {% include widgets/publication_card.html item=item %}
 {% endfor %}
-</div>
 
 </div>
 </div>
