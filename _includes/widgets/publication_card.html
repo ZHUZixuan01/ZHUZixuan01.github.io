@@ -1,46 +1,34 @@
-<div class="card shadow-sm mb-4">
+{% assign talks = site.news %}
 
-<div class="card-body">
+<div class="my-3 bg-white shadow-sm rounded-xl">
+<h6 class="p-3 mb-0 border-bottom border-gray">
+<i class="fas fa-rss"></i> Talks
+</h6>
 
-<h3 class="card-title mb-3">
-{{ include.title }}
-</h3>
+<div class="px-3 pb-2">
 
-{% for item in include.items %}
+{% for talk in talks %}
 
-<div class="publication-entry">
+<div class="talk-entry py-2">
 
-<div class="publication-title">
-{{ item.title }}.
+<div class="talk-title">
+{{ talk.title }}
 </div>
 
-<div class="publication-meta">
+<ul class="talk-venues mb-1">
 
-{{ item.authors }}.
+{% for v in talk.venues %}
 
-{% if item.venue %}
-{{ item.venue }},
-{% endif %}
-
-{{ item.year }}.
-
-<span class="publication-links">
-
-{% if item.arxiv %}
-<a href="{{ item.arxiv }}">arXiv</a>
-{% endif %}
-
-{% if item.pdf %}
-<a href="{{ item.pdf }}">PDF</a>
-{% endif %}
-
-{% if item.slides %}
-<a href="{{ item.slides }}">Slides</a>
-{% endif %}
-
+<li>
+{{ v.place }}
+<span class="text-muted">
+({{ v.date | date: "%b %d, %Y" }})
 </span>
+</li>
 
-</div>
+{% endfor %}
+
+</ul>
 
 </div>
 
