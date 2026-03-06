@@ -1,4 +1,4 @@
-<div class="card shadow-sm rounded-xl mb-4">
+<div class="card shadow-sm mb-4">
 
 <div class="card-body">
 
@@ -8,51 +8,41 @@
 
 {% for item in include.items %}
 
-<div class="mb-3">
+<div class="publication-entry">
 
-<div class="fw-semibold">
-{{ item.title }}
+<div class="publication-title">
+{{ item.title }}.
 </div>
 
-<div class="text-muted">
+<div class="publication-meta">
 
-{% if item.authors %}
-{{ item.authors }}
-{% endif %}
-
-</div>
-
-<div class="text-muted small">
+{{ item.authors }}.
 
 {% if item.venue %}
 {{ item.venue }},
 {% endif %}
 
-{{ item.year }}
+{{ item.year }}.
 
-</div>
-
-<div class="small">
+<span class="publication-links">
 
 {% if item.arxiv %}
 <a href="{{ item.arxiv }}">arXiv</a>
 {% endif %}
 
 {% if item.pdf %}
- | <a href="{{ item.pdf }}">PDF</a>
+<a href="{{ item.pdf }}">PDF</a>
 {% endif %}
 
 {% if item.slides %}
- | <a href="{{ item.slides }}">Slides</a>
+<a href="{{ item.slides }}">Slides</a>
 {% endif %}
 
-</div>
+</span>
 
 </div>
 
-{% unless forloop.last %}
-<hr>
-{% endunless %}
+</div>
 
 {% endfor %}
 
