@@ -4,6 +4,11 @@ title : Publications
 navbar_title: Research
 ---
 
+    {% assign count_news = site.news | size %}
+    {% if count_news > 0 %}
+        {% include widgets/news_card.html limit=site.data.display.homepage.num_news %}
+    {% endif %}
+
 {% assign publications = site.publications | where: "type", "publication" | sort: "year" | reverse %}
 {% assign preprints = site.publications | where: "type", "preprint" | sort: "year" | reverse %}
 
