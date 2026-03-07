@@ -1,0 +1,35 @@
+{% assign seminars_by_title = site.seminars | group_by_exp: "item", "item.title" %}
+
+<div class="my-3 bg-white shadow-sm rounded-xl">
+  <h4 class="p-3 mb-0 border-bottom border-gray">
+    <i class="fas fa-users"></i> Seminars
+  </h4>
+
+  <div class="px-3 pb-2">
+
+    {% for seminar in seminars_by_title %}
+      <div class="py-2">
+
+        <h6 class="font-weight-bold mb-1">
+          {{ seminar.name }}
+        </h6>
+
+        <ul class="mb-0 text-sm text-gray-700">
+          {% for item in seminar.items %}
+            <li>
+              {{ item.place }}
+              <span class="text-muted">
+                ({{ item.date | date: "%b %d, %Y" }})
+              </span>
+              {% if item.role %}
+                — {{ item.role }}
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+
+      </div>
+    {% endfor %}
+
+  </div>
+</div>
