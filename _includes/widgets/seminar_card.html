@@ -10,10 +10,15 @@
     {% for seminar in seminars_by_title %}
       <div class="py-2">
 
-        <h6 class="font-weight-bold mb-1">
-          {{ seminar.name }}
-        </h6>
-
+      <h6 class="font-weight-bold mb-1">
+  {% if seminar.items[0].link %}
+    <a href="{{ seminar.items[0].link | relative_url }}" class="seminar-link">
+      {{ seminar.name }}
+    </a>
+  {% else %}
+    {{ seminar.name }}
+  {% endif %}
+</h6>
         <ul class="mb-0 text-sm text-gray-700">
           {% for item in seminar.items %}
             <li>
