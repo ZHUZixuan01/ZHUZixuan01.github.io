@@ -1,6 +1,6 @@
 ---
 title: Unterseminar Modelltheorie und Gruppen
 place: University of Münster
-date: Summer Semester 2026
+time: Summer Semester 2026
 link: /unterseminar.html
 ---
