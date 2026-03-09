@@ -1,0 +1,60 @@
+primary_name: "ZHU Zixuan"
+secondary_name: ""
+navbar_name: "ZHU Zixuan(朱子璇)"
+
+#positions:
+#- logo: /assets/images/badges/MIT_Social_circle.png  # Logo is optional
+#  name: Position 1 with logo
+#- name: Position 2 without logo
+
+
+email: "zixuan.zhu@uni-muenster.de"
+# cv_link: link-to-your-cv-file
+# gscholar: xFmQpf4AAAAJ  # This is an example, replace it with your own Google Scholar ID
+# github: your_github_id
+# twitter: your_twitter_id  # Do not include the '@' symbol
+# wechat_qrcode: /assets/images/etc/wechat.jpg
+# wechat_prompt: >-
+#   Please tell me your <strong>name</strong> and <strong>affiliation</strong> (current or past) when adding my wechat. Thanks!
+# linkedin: your-linked-in-id
+# orcid: 0000-0000-0000-0000
+
+short_bio_text_justify: false
+short_bio: >-
+  <p>
+    I'm currently a Ph.D. student (started April 2024) at the Institute for Mathematical Logic of the University of Münster, under the supervision of <a href="https://www.uni-muenster.de/Logik/hils/">Prof. Martin HILS</a>. 
+  </p>
+  <p>
+    I am interested in model theory and its applications in algebra.
+  </p>
+  <p>
+   Key Words: Beautiful(Lovely) pairs, definable groups, imaginaries, etc.
+   </p>
+
+portrait_url: /assets/images/photos/portrait.jpg
+portrait_caption: >-
+  I am not a cat. But I don't have a favorite photo yet.
+education:
+- name: Université de Paris(Diderot)
+  logo: assets/images/badges/UniversiteParis_monogramme_couleur_RVB.jpg
+  position: >- 
+    M.S. in Mathematics and Applications 
+  date: Sep. 2021 - Oct. 2023
+- name: University of Science and Technology of China
+  logo: /assets/images/badges/USTC_logo.png
+  position: B.S. in Mathematics
+  date: Sep. 2017 - Jun. 2021
+
+# experience:
+# - name: Peking University
+#   logo: /assets/images/badges/PKU_red.png
+#   position: Research Intern
+#   date: Sep. 2019 - Jul. 2021
+
+#awards:
+#- name: Award Name 2
+ # date: 2024
+#- name: Award Name 1 
+  #date: 2021
+#- name: A quick brown fox jumps over the lazy dog and runs away award
+#  date: 2021

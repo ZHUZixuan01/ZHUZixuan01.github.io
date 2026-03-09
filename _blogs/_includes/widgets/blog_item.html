@@ -1,0 +1,185 @@
+{% assign item = include.item %}
+<meta charset="UTF-8">
+<style>
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            width: 100%;
+            max-width: 1000px;
+            position: relative;
+                display: flex;
+        }
+        
+        .card-header {
+                display: flex;
+                background: white;
+            justify-content: space-between;
+            align-items: center;
+                height: auto;
+                padding: 10px;
+        }
+        
+        .text-container {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 8px;
+                padding: 20px;
+        }
+        
+        .text-content {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 16px;
+            transition: all 0.4s ease;
+        }
+        
+        /* 限制为3行 */
+        .collapsed {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 4.8em; /* 3行 x 1.6行高 */
+        }
+        
+        /* 渐变遮罩 */
+        .fade-out {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .fade-out.hidden {
+            opacity: 0;
+        }
+        
+        .card-footer {
+                display: flex;
+                background: white;
+            justify-content: space-between;
+            align-items: center;
+                height: auto;
+        }
+        
+        .read-more-btn {
+                float: right;
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(66, 153, 225, 0.4);
+            transition: all 0.3s ease;
+            margin-left: auto; /* 这将使按钮右对齐 */
+                width: fit-content;
+        }
+        
+        .read-more-btn:hover {
+            background: #3182ce;
+        }
+        
+        .read-more-btn.expanded {
+            background: #e53e3e;
+        }
+        
+        .lang-btn {
+                float: right;
+            background: white;
+            color: #4a5568;
+            border: 1px solid #cbd5e0;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover {
+            background: #4299e1;
+            color: white;
+            border-color: #4299e1;
+        }
+        .lang-btn.hidden {
+        display: none;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 600px) {
+            .card {
+                padding: 20px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .card-footer {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .read-more-btn {
+                align-self: flex-end; /* 在移动设备上保持按钮在右侧 */
+                margin-left: 0;
+            }
+            
+            .lang-btn {
+                align-self: flex-end;
+            }
+        }
+    </style>
+    <div class="card" data-item-id="{{ item.id | default: forloop.index }}">
+    <div class="card-header">
+       <h2 class="main-title" data-zh="{{ item.title_zh }}" data-en="{{ item.title_en }}">
+            {% if item.engav %}
+                {{ item.title_en }}
+            {% else %}
+                {{ item.title_zh }}
+            {% endif %}
+        </h2>
+        <button class="lang-btn {% unless item.engav %}hidden{% endunless %}" 
+                data-engav="{{ item.engav }}">
+           {% if item.engav %}
+                中文
+            {% else %}
+                English
+            {% endif %}
+        </button>
+    </div>
+    
+    <div class="text-container">
+        <div class="text-content collapsed" data-zh="{{ item.content_zh }}" data-en="{{ item.content_en }}">
+            {% if item.engav %}
+                {{ item.content_en }}
+            {% else %}
+                {{ item.content_zh }}
+            {% endif %}
+        </div>
+        <div class="fade-out"></div>
+    </div>
+    
+    <div class="card-footer">
+        <div>{{ item.date | date: '%d %b' }}</div>
+        <button class="read-more-btn">
+        {% if item.engav %}
+                Read More
+            {% else %}
+                展开
+            {% endif %}
+        </button>
+    </div>
+</div>

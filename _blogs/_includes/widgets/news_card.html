@@ -1,0 +1,36 @@
+{% assign talks_by_title = site.news | group_by_exp: "item", "item.title" %}
+
+<div class="my-3 bg-white shadow-sm rounded-xl">
+  <h4 class="p-3 mb-0 border-bottom border-gray">
+    <i class="fas fa-rss"></i> Talks
+  </h4>
+
+  <div class="px-3 pb-2">
+
+    {% for talk in talks_by_title %}
+      <div class="talk-entry py-2">
+
+        <!-- Talk title -->
+        <h6 class="talk-title font-weight-bold">
+          {{ talk.name }}
+          </h6>
+
+        <!-- Talk venues -->
+        <ul class="talk-venues mb-0 list-disc list-inside text-sm text-gray-700">
+          {% for item in talk.items %}
+            {% if item.venues %}
+              {% for venue in item.venues %}
+                <li>
+                  {{ venue.place }} 
+                  <span class="text-muted">({{ venue.date | date: "%b %d, %Y" }})</span>
+                </li>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+      </div>
+    {% endfor %}
+
+  </div>
+</div>
