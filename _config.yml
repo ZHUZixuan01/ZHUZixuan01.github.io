@@ -35,15 +35,7 @@ plugins:
 # timezone: Europe/Paris
 
 collections:
-  blogs:
-    output: true
-  news:
-    output: true
-  publications:
-    output: true
-  seminar:
-    output: true
-  showcase:
-    output: true
-  teaching:
-    output: true
+  - publications
+  - news
+  - showcase
+  - blogs
