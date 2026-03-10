@@ -28,3 +28,7 @@ navbar_title: Home
         title='<i class="fas fa-star"></i> Selected Publications'
     %}
 {% endif %}
+
+{% if site.data.display.homepage.show_teaching %}
+    {% include widgets/teaching_card.html %}
+{% endif %}
