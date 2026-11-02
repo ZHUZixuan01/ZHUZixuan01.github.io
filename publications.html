@@ -4,20 +4,26 @@ title: Research
 navbar_title: Research
 ---
 
+<!-- Research content is maintained here directly, without _data/cv.yml. -->
 <div class="row mt-3">
   <div class="col-12">
+
     <div class="card border-0 shadow-sm bg-white mb-3">
       <div class="card-body p-4">
         <h4 class="mb-3">Preprints</h4>
-        {% for item in site.data.cv.preprints %}
-        <div class="{% unless forloop.last %}mb-3{% endunless %}">
-          <div class="font-weight-bold">{{ item.title }}</div>
-          <div class="small text-muted">
-            {{ item.authors }} · {{ item.year }}
-            {% if item.arxiv %} · <a href="{{ item.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a>{% endif %}
+
+        <div class="mb-3">
+          <div class="font-weight-bold">Rank and Independence of Imaginaries in Proper Pairs of ACF</div>
+          <div class="small text-muted">Zixuan Zhu · 2026 ·
+            <a href="https://arxiv.org/abs/2603.03518" target="_blank" rel="noopener noreferrer">arXiv:2603.03518</a>
           </div>
         </div>
-        {% endfor %}
+
+        <div>
+          <div class="font-weight-bold">Geometric classification of imaginaries in pseudofinite fields</div>
+          <div class="small text-muted">Zixuan Zhu · 2026</div>
+        </div>
+
       </div>
     </div>
 
@@ -26,33 +32,49 @@ navbar_title: Research
         <h4 class="mb-4">Talks</h4>
 
         <h5 class="mb-3">Invited Seminar Talks</h5>
-        {% for item in site.data.cv.seminar_talks %}
         <div class="mb-3">
-          <div class="font-weight-bold">{{ item.title }}</div>
-          <div class="small text-muted">
-            {{ item.institution }} · {{ item.date }}{% if item.status %} · {{ item.status }}{% endif %}
-          </div>
+          <div class="font-weight-bold">Oberseminar Logik</div>
+          <div class="small text-muted">University of Bonn · 30 Nov 2026 · Planned</div>
         </div>
-        {% endfor %}
+        <div class="mb-3">
+          <div class="font-weight-bold">Oberseminar: Mathematische Logik</div>
+          <div class="small text-muted">University of Freiburg · 16 Jun 2026</div>
+        </div>
+        <div class="mb-3">
+          <div class="font-weight-bold">Model Theory Seminar</div>
+          <div class="small text-muted">University of Notre Dame · 24 Mar 2026</div>
+        </div>
+        <div class="mb-3">
+          <div class="font-weight-bold">Logic Seminar</div>
+          <div class="small text-muted">University of Illinois Chicago · 17 Mar 2026</div>
+        </div>
+        <div class="mb-3">
+          <div class="font-weight-bold">Model Theory Seminar</div>
+          <div class="small text-muted">University of California, Berkeley · 11 Mar 2026</div>
+        </div>
+        <div class="mb-3">
+          <div class="font-weight-bold">Fudan Logic Student Seminar</div>
+          <div class="small text-muted">Fudan University · 25 Mar 2025</div>
+        </div>
 
         <h5 class="mt-4 mb-3">Invited Conference Talks</h5>
-        {% for item in site.data.cv.invited_conference_talks %}
         <div class="mb-3">
-          <div class="font-weight-bold">{{ item.title }}</div>
-          <div class="small text-muted">
-            {{ item.institution }} · {{ item.date }}{% if item.status %} · {{ item.status }}{% endif %}
-          </div>
+          <div class="font-weight-bold">Recent developments in the model theory of fields</div>
+          <div class="small text-muted">Manchester, UK · 28 Jun–2 Jul 2027 · Planned</div>
         </div>
-        {% endfor %}
+        <div class="mb-3">
+          <div class="font-weight-bold">Tsinghua Reunion Conference</div>
+          <div class="small text-muted">Beijing, China · 28 Jun–1 Jul 2025</div>
+        </div>
 
         <h5 class="mt-4 mb-3">Contributed Conference Talks</h5>
-        {% for item in site.data.cv.contributed_conference_talks %}
-        <div class="mb-3">
-          <div class="font-weight-bold">{{ item.title }}</div>
-          <div class="small text-muted">{{ item.institution }} · {{ item.date }}</div>
+        <div>
+          <div class="font-weight-bold">Colloquium Logicum 2026</div>
+          <div class="small text-muted">Würzburg, Germany · 21–24 Sep 2026</div>
         </div>
-        {% endfor %}
+
       </div>
     </div>
+
   </div>
 </div>
