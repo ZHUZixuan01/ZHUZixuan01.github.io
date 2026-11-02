@@ -3,7 +3,12 @@ secondary_name: ""
 navbar_name: "Zixuan Zhu (朱子璇)"
 
 email: "zixuan.zhu@uni-muenster.de"
-# No cv_link: the site uses the Research page, not a separate web CV.
+# Upload your CV as assets/files/CV.pdf in the repository.
+cv_link: /assets/files/CV.pdf
+# Uncomment when you wish to display additional academic profiles.
+# gscholar: YOUR_GOOGLE_SCHOLAR_ID
+# orcid: YOUR_ORCID
+# github: ZHUZixuan01
 short_bio_text_justify: false
 short_bio: >-
   <p>
