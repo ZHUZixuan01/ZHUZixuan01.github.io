@@ -6,11 +6,12 @@ navbar_title: Research
 
 <div class="row mt-3">
   <div class="col-12">
+
     <div class="card shadow-sm mb-4">
       <div class="card-body p-4">
         <h4 class="card-title mb-3">Research Interests</h4>
-        <p class="mb-0">Model theory, particularly stability and simplicity theory, imaginaries,
-          beautiful and lovely pairs, definable groups, and the model theory of fields.</p>
+        <p class="mb-0">Model theory, particularly stability and simplicity theory,
+          imaginaries, beautiful and lovely pairs, definable groups, and the model theory of fields.</p>
       </div>
     </div>
 
@@ -18,12 +19,12 @@ navbar_title: Research
       <div class="card-body p-4">
         <h4 class="card-title mb-3">Preprints</h4>
         {% for item in site.data.cv.preprints %}
-          <div class="publication-entry mb-3">
-            <div class="publication-title">{{ item.title }}.</div>
-            <div class="publication-meta">
-              {{ item.authors }}. {{ item.year }}.
-              {% if item.arxiv %}<span class="publication-links"><a href="{{ item.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a></span>{% endif %}
-            </div>
+          <div class="mb-3 {% unless forloop.last %}pb-3 border-bottom{% endunless %}">
+            <div class="font-weight-bold">{{ item.title }}</div>
+            <div class="small text-muted">{{ item.authors }} · {{ item.year }}</div>
+            {% if item.arxiv %}
+              <div class="small mt-1"><a href="{{ item.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a></div>
+            {% endif %}
           </div>
         {% endfor %}
       </div>
@@ -31,21 +32,89 @@ navbar_title: Research
 
     <div class="card shadow-sm mb-4">
       <div class="card-body p-4">
-        <h4 class="card-title mb-3">Previous Research Projects</h4>
-        {% for item in site.data.cv.research_projects %}
-          <div class="mb-3">
-            <div class="font-weight-bold">{{ item.title }}</div>
-            <div class="small text-muted">{{ item.date }}</div>
-            <div class="small">{{ item.detail }}</div>
+        <h4 class="card-title mb-3">Research Visits</h4>
+        {% for item in site.data.cv.research_visits %}
+          <div class="mb-3 {% unless forloop.last %}pb-3 border-bottom{% endunless %}">
+            <div class="font-weight-bold">{{ item.institution }}{% if item.status %} <span class="small font-weight-normal text-muted">({{ item.status }})</span>{% endif %}</div>
+            <div class="small text-muted">{{ item.location }} · {{ item.date }}</div>
+            {% if item.detail %}<div class="small mt-1">{{ item.detail }}</div>{% endif %}
           </div>
         {% endfor %}
       </div>
     </div>
 
-    {% comment %} Keep the existing Talks collection and its presentation, if populated. {% endcomment %}
-    {% assign count_news = site.news | size %}
-    {% if count_news > 0 %}
-      {% include widgets/news_card.html %}
-    {% endif %}
+    <div class="card shadow-sm mb-4">
+      <div class="card-body p-4">
+        <h4 class="card-title mb-3">Invited Seminar Talks</h4>
+        {% for item in site.data.cv.seminar_talks %}
+          <div class="mb-3 {% unless forloop.last %}pb-2 border-bottom{% endunless %}">
+            <div class="font-weight-bold">{{ item.title }}{% if item.status %} <span class="small font-weight-normal text-muted">({{ item.status }})</span>{% endif %}</div>
+            <div class="small text-muted">{{ item.institution }} · {{ item.date }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+      <div class="card-body p-4">
+        <h4 class="card-title mb-3">Conference Talks</h4>
+        <h6 class="mt-3 mb-2">Invited</h6>
+        {% for item in site.data.cv.invited_conference_talks %}
+          <div class="mb-3">
+            <div class="font-weight-bold">{{ item.title }}{% if item.status %} <span class="small font-weight-normal text-muted">({{ item.status }})</span>{% endif %}</div>
+            <div class="small text-muted">{{ item.institution }} · {{ item.date }}</div>
+          </div>
+        {% endfor %}
+        <h6 class="mt-3 mb-2">Contributed</h6>
+        {% for item in site.data.cv.contributed_conference_talks %}
+          <div class="mb-3">
+            <div class="font-weight-bold">{{ item.title }}</div>
+            <div class="small text-muted">{{ item.institution }} · {{ item.date }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+      <div class="card-body p-4">
+        <h4 class="card-title mb-3">Selected Conferences and Workshops</h4>
+        {% for item in site.data.cv.conferences_attended %}
+          <div class="mb-3 {% unless forloop.last %}pb-2 border-bottom{% endunless %}">
+            <div class="font-weight-bold">{{ item.title }}</div>
+            <div class="small text-muted">{{ item.institution }} · {{ item.date }}</div>
+            {% if item.detail %}<div class="small mt-1">{{ item.detail }}</div>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+      <div class="card-body p-4">
+        <h4 class="card-title mb-3">Seminar Organization</h4>
+        {% for item in site.data.cv.seminar_organization %}
+          <div class="mb-3 {% unless forloop.last %}pb-2 border-bottom{% endunless %}">
+            <div class="font-weight-bold">
+              {% if item.url %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+            </div>
+            <div class="small text-muted">{{ item.date }}</div>
+            {% if item.detail %}<div class="small mt-1">{{ item.detail }}</div>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="card shadow-sm mb-4">
+      <div class="card-body p-4">
+        <h4 class="card-title mb-3">Teaching Experience</h4>
+        {% for item in site.data.cv.teaching %}
+          <div class="mb-3 {% unless forloop.last %}pb-2 border-bottom{% endunless %}">
+            <div class="font-weight-bold">{{ item.course }}</div>
+            <div class="small text-muted">{{ item.institution }} · {{ item.date }}</div>
+            {% if item.detail %}<div class="small mt-1">{{ item.detail }}</div>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
   </div>
 </div>
