@@ -6,107 +6,53 @@ navbar_title: Research
 
 <div class="row mt-3">
   <div class="col-12">
-
-    <div class="card border-0 shadow-sm bg-white mb-3">
-      <div class="card-body p-4">
-        <h4 class="mb-3">Research Interests</h4>
-        <p class="mb-0">Model theory, particularly stability and simplicity theory, imaginaries,
-          beautiful and lovely pairs, definable groups, and the model theory of fields.</p>
-      </div>
-    </div>
-
     <div class="card border-0 shadow-sm bg-white mb-3">
       <div class="card-body p-4">
         <h4 class="mb-3">Preprints</h4>
         {% for item in site.data.cv.preprints %}
-          <div class="{% unless forloop.last %}mb-3{% endunless %}">
-            <div class="font-weight-bold">{{ item.title }}</div>
-            <div class="small text-muted">{{ item.authors }} · {{ item.year }}
-              {% if item.arxiv %} · <a href="{{ item.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a>{% endif %}
-            </div>
+        <div class="{% unless forloop.last %}mb-3{% endunless %}">
+          <div class="font-weight-bold">{{ item.title }}</div>
+          <div class="small text-muted">
+            {{ item.authors }} · {{ item.year }}
+            {% if item.arxiv %} · <a href="{{ item.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a>{% endif %}
           </div>
+        </div>
         {% endfor %}
       </div>
     </div>
 
     <div class="card border-0 shadow-sm bg-white mb-3">
       <div class="card-body p-4">
-        <h4 class="mb-3">Invited Seminar Talks</h4>
+        <h4 class="mb-4">Talks</h4>
+
+        <h5 class="mb-3">Invited Seminar Talks</h5>
         {% for item in site.data.cv.seminar_talks %}
-          <div class="{% unless forloop.last %}mb-2{% endunless %}">
-            <div><strong>{{ item.title }}</strong>{% if item.status %} <span class="text-muted small">({{ item.status }})</span>{% endif %}</div>
-            <div class="small text-muted">{{ item.institution }} · {{ item.date }}</div>
+        <div class="mb-3">
+          <div class="font-weight-bold">{{ item.title }}</div>
+          <div class="small text-muted">
+            {{ item.institution }} · {{ item.date }}{% if item.status %} · {{ item.status }}{% endif %}
           </div>
+        </div>
         {% endfor %}
-        <h5 class="mt-4 mb-3">Conference Talks</h5>
-        <h6 class="mb-2">Invited</h6>
+
+        <h5 class="mt-4 mb-3">Invited Conference Talks</h5>
         {% for item in site.data.cv.invited_conference_talks %}
-          <div class="mb-2">
-            <div><strong>{{ item.title }}</strong>{% if item.status %} <span class="text-muted small">({{ item.status }})</span>{% endif %}</div>
-            <div class="small text-muted">{{ item.institution }} · {{ item.date }}</div>
+        <div class="mb-3">
+          <div class="font-weight-bold">{{ item.title }}</div>
+          <div class="small text-muted">
+            {{ item.institution }} · {{ item.date }}{% if item.status %} · {{ item.status }}{% endif %}
           </div>
+        </div>
         {% endfor %}
-        <h6 class="mt-3 mb-2">Contributed</h6>
+
+        <h5 class="mt-4 mb-3">Contributed Conference Talks</h5>
         {% for item in site.data.cv.contributed_conference_talks %}
-          <div class="mb-2">
-            <div><strong>{{ item.title }}</strong></div>
-            <div class="small text-muted">{{ item.institution }} · {{ item.date }}</div>
-          </div>
+        <div class="mb-3">
+          <div class="font-weight-bold">{{ item.title }}</div>
+          <div class="small text-muted">{{ item.institution }} · {{ item.date }}</div>
+        </div>
         {% endfor %}
       </div>
     </div>
-
-    <div class="card border-0 shadow-sm bg-white mb-3">
-      <div class="card-body p-4">
-        <h4 class="mb-3">Research Visits</h4>
-        {% for item in site.data.cv.research_visits %}
-          <div class="{% unless forloop.last %}mb-3{% endunless %}">
-            <div><strong>{{ item.institution }}</strong>{% if item.status %} <span class="text-muted small">({{ item.status }})</span>{% endif %}</div>
-            <div class="small text-muted">{{ item.location }} · {{ item.date }}</div>
-            {% if item.detail %}<div class="small">{{ item.detail }}</div>{% endif %}
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="card border-0 shadow-sm bg-white mb-3">
-      <div class="card-body p-4">
-        <h4 class="mb-3">Selected Conferences and Workshops</h4>
-        {% for item in site.data.cv.conferences_attended %}
-          <div class="{% unless forloop.last %}mb-3{% endunless %}">
-            <div><strong>{{ item.title }}</strong></div>
-            <div class="small text-muted">{{ item.institution }} · {{ item.date }}</div>
-            {% if item.detail %}<div class="small">{{ item.detail }}</div>{% endif %}
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="card border-0 shadow-sm bg-white mb-3">
-      <div class="card-body p-4">
-        <h4 class="mb-3">Seminar Organization</h4>
-        {% for item in site.data.cv.seminar_organization %}
-          <div class="{% unless forloop.last %}mb-3{% endunless %}">
-            <div><strong>{% if item.url %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong></div>
-            <div class="small text-muted">{{ item.date }}</div>
-            {% if item.detail %}<div class="small">{{ item.detail }}</div>{% endif %}
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="card border-0 shadow-sm bg-white mb-3">
-      <div class="card-body p-4">
-        <h4 class="mb-3">Teaching Experience</h4>
-        {% for item in site.data.cv.teaching %}
-          <div class="{% unless forloop.last %}mb-3{% endunless %}">
-            <div><strong>{{ item.course }}</strong></div>
-            <div class="small text-muted">{{ item.institution }} · {{ item.date }}</div>
-            {% if item.detail %}<div class="small">{{ item.detail }}</div>{% endif %}
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-
   </div>
 </div>

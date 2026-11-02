@@ -6,26 +6,25 @@ navbar_title: Home
 
 {% include widgets/profile_card.html %}
 
-<!-- Keep the homepage short. All research activities appear on /publications. -->
 <div class="row mt-3">
   <div class="col">
     <div class="card border-0 shadow-sm bg-white">
       <div class="card-body p-4">
-        <h5 class="mb-3">Education</h5>
+        <h4 class="mb-3">Education</h4>
         {% for item in site.data.cv.education %}
-          <div class="media {% unless forloop.last %}mb-3{% endunless %}">
-            {% if item.logo %}
-              <img src="{{ item.logo | relative_url }}" alt="" style="width: 28px; height: 28px; object-fit: contain;" class="mr-3 mt-1">
-            {% else %}
-              <i class="fas fa-graduation-cap text-muted mr-3 mt-1" aria-hidden="true" style="width: 28px;"></i>
-            {% endif %}
-            <div class="media-body">
-              <div class="font-weight-bold">{{ item.institution }}</div>
-              <div>{{ item.degree }}</div>
-              <div class="small text-muted">{{ item.date }} · {{ item.location }}</div>
-              {% if item.detail %}<div class="small">{{ item.detail }}</div>{% endif %}
-            </div>
+        <div class="media {% unless forloop.last %}mb-3{% endunless %}">
+          {% if item.logo %}
+          <img src="{{ item.logo | relative_url }}" alt="" style="width: 28px; height: 28px; object-fit: contain;" class="mr-3 mt-1">
+          {% else %}
+          <i class="fas fa-graduation-cap text-muted mr-3 mt-1" style="width: 28px;" aria-hidden="true"></i>
+          {% endif %}
+          <div class="media-body">
+            <div class="font-weight-bold">{{ item.institution }}</div>
+            <div>{{ item.degree }}</div>
+            <div class="small text-muted">{{ item.date }} · {{ item.location }}</div>
+            {% if item.detail %}<div class="small">{{ item.detail }}</div>{% endif %}
           </div>
+        </div>
         {% endfor %}
       </div>
     </div>
