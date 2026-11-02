@@ -6,53 +6,28 @@ navbar_title: Home
 
 {% include widgets/profile_card.html %}
 
-{% if site.data.display.homepage.show_experience %}
-  {% include widgets/experience_card.html %}
-{% endif %}
-
+<!-- Keep the homepage short. All research activities appear on /publications. -->
 <div class="row mt-3">
   <div class="col">
     <div class="card border-0 shadow-sm bg-white">
       <div class="card-body p-4">
-        <div class="d-flex justify-content-between align-items-baseline flex-wrap">
-          <h4 class="mb-3">Preprints</h4>
-          <a class="small" href="{{ '/publications' | relative_url }}">Research and publications</a>
-        </div>
-        {% for item in site.data.cv.preprints %}
-          <div class="mb-3 {% unless forloop.last %}pb-2 border-bottom{% endunless %}">
-            <div class="font-weight-bold">{{ item.title }}</div>
-            <div class="small text-muted">{{ item.authors }} · {{ item.year }}</div>
-            {% if item.arxiv %}
-              <div class="small"><a href="{{ item.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv <i class="fas fa-external-link-alt" aria-hidden="true"></i></a></div>
+        <h5 class="mb-3">Education</h5>
+        {% for item in site.data.cv.education %}
+          <div class="media {% unless forloop.last %}mb-3{% endunless %}">
+            {% if item.logo %}
+              <img src="{{ item.logo | relative_url }}" alt="" style="width: 28px; height: 28px; object-fit: contain;" class="mr-3 mt-1">
+            {% else %}
+              <i class="fas fa-graduation-cap text-muted mr-3 mt-1" aria-hidden="true" style="width: 28px;"></i>
             {% endif %}
+            <div class="media-body">
+              <div class="font-weight-bold">{{ item.institution }}</div>
+              <div>{{ item.degree }}</div>
+              <div class="small text-muted">{{ item.date }} · {{ item.location }}</div>
+              {% if item.detail %}<div class="small">{{ item.detail }}</div>{% endif %}
+            </div>
           </div>
         {% endfor %}
       </div>
     </div>
   </div>
 </div>
-
-<div class="row mt-3">
-  <div class="col">
-    <div class="card border-0 shadow-sm bg-white">
-      <div class="card-body p-4">
-        <div class="d-flex justify-content-between align-items-baseline flex-wrap">
-          <h4 class="mb-3">Selected Seminar Talks</h4>
-          <a class="small" href="{{ '/cv' | relative_url }}#talks">Complete list of talks</a>
-        </div>
-        <ul class="list-unstyled mb-0">
-          {% for item in site.data.cv.seminar_talks limit:5 %}
-            <li class="mb-2">
-              <div class="font-weight-bold">{{ item.title }}</div>
-              <div class="small text-muted">{{ item.institution }} · {{ item.date }}{% if item.status %} ({{ item.status }}){% endif %}</div>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-{% if site.data.display.homepage.show_teaching %}
-  {% include widgets/teaching_card.html %}
-{% endif %}
