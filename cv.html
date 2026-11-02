@@ -1,0 +1,164 @@
+---
+layout: default
+title: Curriculum Vitae
+navbar_title: CV
+---
+
+<style>
+.cv-entry { padding: .58rem 0; border-bottom: 1px solid #edf0f2; }
+.cv-entry:last-child { border-bottom: 0; }
+.cv-date { color: #6c757d; font-size: .9rem; white-space: nowrap; }
+.cv-detail { color: #575c63; font-size: .92rem; margin-top: .2rem; }
+.cv-title { font-weight: 600; }
+.cv-card { margin-top: 1rem; }
+@media (max-width: 576px) {
+  .cv-date { display: block; margin-top: .2rem; white-space: normal; }
+}
+</style>
+
+<div class="card border-0 shadow-sm bg-white cv-card">
+  <div class="card-body p-4">
+    <div class="d-flex flex-wrap align-items-baseline justify-content-between">
+      <h2 class="font-weight-normal mb-1">Zixuan Zhu</h2>
+      <span class="small text-muted">Academic CV · November 2026</span>
+    </div>
+    <p class="mb-1">Ph.D. student in Mathematical Logic · University of Münster</p>
+    <p class="mb-0"><a href="mailto:zixuan.zhu@uni-muenster.de">zixuan.zhu@uni-muenster.de</a></p>
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm bg-white cv-card" id="education">
+  <div class="card-body p-4">
+    <h4 class="mb-3">Education</h4>
+    {% for item in site.data.cv.education %}
+      <div class="cv-entry">
+        <div class="d-flex justify-content-between flex-wrap">
+          <span class="cv-title">{{ item.institution }}</span>
+          <span class="cv-date">{{ item.date }}</span>
+        </div>
+        <div>{{ item.degree }} · {{ item.location }}</div>
+        {% if item.detail %}<div class="cv-detail">{{ item.detail }}</div>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm bg-white cv-card" id="preprints">
+  <div class="card-body p-4">
+    <h4 class="mb-3">Preprints</h4>
+    {% for item in site.data.cv.preprints %}
+      <div class="cv-entry">
+        <div class="cv-title">{{ item.title }}.</div>
+        <div>{{ item.authors }} ({{ item.year }}).
+          {% if item.arxiv %}<a href="{{ item.arxiv }}" target="_blank" rel="noopener noreferrer">arXiv</a>{% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm bg-white cv-card" id="projects">
+  <div class="card-body p-4">
+    <h4 class="mb-3">Previous Research Projects</h4>
+    {% for item in site.data.cv.research_projects %}
+      <div class="cv-entry">
+        <div class="d-flex justify-content-between flex-wrap"><span class="cv-title">{{ item.title }}</span><span class="cv-date">{{ item.date }}</span></div>
+        <div class="cv-detail">{{ item.detail }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm bg-white cv-card" id="visits">
+  <div class="card-body p-4">
+    <h4 class="mb-3">Research Visits</h4>
+    {% for item in site.data.cv.research_visits %}
+      <div class="cv-entry">
+        <div class="d-flex justify-content-between flex-wrap"><span class="cv-title">{{ item.institution }}</span><span class="cv-date">{{ item.date }}{% if item.status %} ({{ item.status }}){% endif %}</span></div>
+        <div>{{ item.location }}</div>
+        {% if item.detail %}<div class="cv-detail">{{ item.detail }}</div>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm bg-white cv-card" id="teaching">
+  <div class="card-body p-4">
+    <h4 class="mb-3">Teaching Experience</h4>
+    {% for item in site.data.cv.teaching %}
+      <div class="cv-entry">
+        <div class="d-flex justify-content-between flex-wrap"><span class="cv-title">{{ item.course }}</span><span class="cv-date">{{ item.date }}</span></div>
+        <div>{{ item.institution }}</div>
+        {% if item.detail %}<div class="cv-detail">{{ item.detail }}</div>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm bg-white cv-card" id="talks">
+  <div class="card-body p-4">
+    <h4 class="mb-3">Invited Seminar Talks</h4>
+    {% for item in site.data.cv.seminar_talks %}
+      <div class="cv-entry">
+        <div class="d-flex justify-content-between flex-wrap"><span class="cv-title">{{ item.title }}</span><span class="cv-date">{{ item.date }}{% if item.status %} ({{ item.status }}){% endif %}</span></div>
+        <div class="cv-detail">{{ item.institution }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm bg-white cv-card" id="conference-talks">
+  <div class="card-body p-4">
+    <h4 class="mb-3">Invited Conference Talks</h4>
+    {% for item in site.data.cv.invited_conference_talks %}
+      <div class="cv-entry">
+        <div class="d-flex justify-content-between flex-wrap"><span class="cv-title">{{ item.title }}</span><span class="cv-date">{{ item.date }}{% if item.status %} ({{ item.status }}){% endif %}</span></div>
+        <div class="cv-detail">{{ item.institution }}</div>
+      </div>
+    {% endfor %}
+    <h4 class="mt-4 mb-3">Contributed Conference Talks</h4>
+    {% for item in site.data.cv.contributed_conference_talks %}
+      <div class="cv-entry">
+        <div class="d-flex justify-content-between flex-wrap"><span class="cv-title">{{ item.title }}</span><span class="cv-date">{{ item.date }}</span></div>
+        <div class="cv-detail">{{ item.institution }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm bg-white cv-card" id="conferences">
+  <div class="card-body p-4">
+    <h4 class="mb-3">Selected Conferences Attended</h4>
+    {% for item in site.data.cv.conferences_attended %}
+      <div class="cv-entry">
+        <div class="d-flex justify-content-between flex-wrap"><span class="cv-title">{{ item.title }}</span><span class="cv-date">{{ item.date }}</span></div>
+        <div>{{ item.institution }}</div>
+        {% if item.detail %}<div class="cv-detail">{{ item.detail }}</div>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm bg-white cv-card" id="organization">
+  <div class="card-body p-4">
+    <h4 class="mb-3">Seminar Organization</h4>
+    {% for item in site.data.cv.seminar_organization %}
+      <div class="cv-entry">
+        <div class="d-flex justify-content-between flex-wrap">
+          <span class="cv-title">{% if item.url %}<a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</span>
+          <span class="cv-date">{{ item.date }}</span>
+        </div>
+        <div class="cv-detail">{{ item.detail }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm bg-white cv-card" id="other">
+  <div class="card-body p-4">
+    <h4 class="mb-2">Languages</h4>
+    <p>{{ site.data.cv.languages }}</p>
+    <h4 class="mb-2">Other Activities</h4>
+    <p class="mb-0">{{ site.data.cv.other_activities }}</p>
+  </div>
+</div>
