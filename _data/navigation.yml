@@ -1,5 +1,5 @@
+# Each name must agree with the page's navbar_title.
 pages:
-  # The name must match the page's navbar_title field.
   - name: Home
     url: /
   - name: Research
