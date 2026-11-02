@@ -1,0 +1,118 @@
+# Academic profile data used on the Research page.
+# Entries marked "Planned" are future engagements.
+
+education:
+  - institution: University of Münster
+    location: Münster, Germany
+    degree: Ph.D. student in Mathematical Logic
+    date: Mar 2024–present
+    detail: "Supervisor: Martin Hils. Expected completion: Summer 2027. Funded by a CSC scholarship."
+  - institution: Université Paris Cité
+    location: Paris, France
+    logo: /assets/images/badges/UniversiteParis_monogramme_couleur_RVB.jpg
+    degree: Master’s degree in Mathematics
+    date: 2021–2023
+    detail: "M1 Mathématiques et Applications; M2 Mathématiques fondamentales. FSMP Master’s Fellowship."
+  - institution: University of Science and Technology of China
+    location: Hefei, China
+    logo: /assets/images/badges/USTC_logo.png
+    degree: B.S. in Mathematics
+    date: Jun 2021
+    detail: School of the Gifted Young.
+
+preprints:
+  - title: Rank and Independence of Imaginaries in Proper Pairs of ACF
+    authors: Zixuan Zhu
+    year: '2026'
+    arxiv: https://arxiv.org/abs/2603.03518
+  - title: Geometric classification of imaginaries in pseudofinite fields
+    authors: Zixuan Zhu
+    year: '2026'
+    # No public link supplied in the CV. Add arxiv: when available.
+
+research_visits:
+  - institution: Université Claude Bernard Lyon 1
+    location: Lyon, France
+    date: Feb 2027
+    status: Planned
+  - institution: University of Notre Dame
+    location: Notre Dame, USA
+    date: 23 Feb–10 Apr 2026
+    detail: "Host: Anand Pillay. Ongoing joint research project on imaginaries in pairs."
+
+teaching:
+  - course: Theory of Computation
+    institution: University of Münster
+    date: Winter 2026–27
+    detail: "Teaching assistant; lecturer: Martin Hils (110 students)."
+  - course: Model Theory
+    institution: University of Münster
+    date: Winter 2025–26
+    detail: "Tutor; lecturer: Martin Hils."
+  - course: Modern Algebra
+    institution: University of Science and Technology of China
+    date: Spring 2020
+    detail: "Tutor; lecturer: Yihuang Shen (112 students), working with two other tutors."
+
+seminar_talks:
+  - title: Oberseminar Logik
+    institution: University of Bonn
+    date: 30 Nov 2026
+    status: Planned
+  - title: "Oberseminar: Mathematische Logik"
+    institution: University of Freiburg
+    date: 16 Jun 2026
+  - title: Model Theory Seminar
+    institution: University of Notre Dame
+    date: 24 Mar 2026
+  - title: Logic Seminar
+    institution: University of Illinois Chicago
+    date: 17 Mar 2026
+  - title: Model Theory Seminar
+    institution: University of California, Berkeley
+    date: 11 Mar 2026
+  - title: Fudan Logic Student Seminar
+    institution: Fudan University
+    date: 25 Mar 2025
+
+invited_conference_talks:
+  - title: Recent developments in the model theory of fields
+    institution: Manchester, UK
+    date: 28 Jun–2 Jul 2027
+    status: Planned
+  - title: Tsinghua Reunion Conference
+    institution: Beijing, China
+    date: 28 Jun–1 Jul 2025
+
+contributed_conference_talks:
+  - title: Colloquium Logicum 2026
+    institution: Würzburg, Germany
+    date: 21–24 Sep 2026
+
+conferences_attended:
+  - title: "Geometry and Combinatorics: The Model Theoretic Perspective"
+    institution: Oberwolfach Workshop, Germany
+    date: 3–8 May 2026
+    detail: Invited participant.
+  - title: Recent Applications of Model Theory
+    institution: "Institute for Mathematical Sciences, National University of Singapore"
+    date: 16–27 Jun 2025
+    detail: Poster on additive rank for imaginaries in beautiful pairs of ACF.
+  - title: Model Theory and Applications to Groups and Combinatorics
+    institution: CIRM, Luminy, France
+    date: 30 Sep–4 Oct 2024
+
+seminar_organization:
+  - title: "Gemeinsames Seminar Algebra und Modelltheorie (GeSAMT)"
+    date: Apr 2026
+    detail: Organized the Bonn–Münster–Düsseldorf meeting in Münster.
+  - title: Junior Model Theory Seminar
+    date: Summer 2026
+    detail: "Coordinated an informal research seminar at the University of Münster."
+    url: /unterseminar
+  - title: Seminar on Set Theory
+    date: Jan–May 2025
+    detail: "Co-organized an online reading seminar on Kunen’s Set Theory, with participants from Paris, Beijing, and Münster."
+
+languages: "Chinese (native); English (fluent); French (intermediate); German (elementary)."
+other_activities: "Competitive bridge player. Represented Germany at the 2024 European Youth Championship and the 2025 World Youth Championship."

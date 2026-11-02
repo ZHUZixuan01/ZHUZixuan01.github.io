@@ -4,7 +4,5 @@ pages:
     url: /
   - name: Research
     url: /publications
-  - name: CV
-    url: /cv
   - name: Non-Math
     url: /nonmath
